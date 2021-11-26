@@ -11,8 +11,6 @@ use terminal_spinners::{SpinnerBuilder, DOTS};
 const COLORSCHEMES: &'static [&'static str] =  &["PlaceHolder"];
 
 
-//plugins
-
 const PLUGINS: &'static [&'static str] = &["PlaceHolder"];
 
 #[derive(Debug)]
