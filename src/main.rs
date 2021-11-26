@@ -10,8 +10,13 @@ use terminal_spinners::{SpinnerBuilder, DOTS};
 
 const COLORSCHEMES: &'static [&'static str] =  &["PlaceHolder"];
 
-
+//plugins
 const PLUGINS: &'static [&'static str] = &["PlaceHolder"];
+
+#[derive(Debug)]
+struct repoUrl {
+    url: String,
+}
 
 #[derive(Debug)]
 struct customRepo {
@@ -28,7 +33,27 @@ struct repoInfo {
         r#type: String,        
 }
 
+impl repoUrl {
+    fn checkLiteral() {
+
+
+      
+     
+    }
+}
+
 fn custom() {
+
+    let mut customInput = String::new();
+    io::stdin().read_line(&mut customInput).expect("Could not read line");
+    let customInput = customInput.trim();
+
+    let customUrl =  repoUrl {
+
+        url: customInput.to_string(),
+    };
+
+
 
 }
 
@@ -40,6 +65,8 @@ fn default() {
 fn main() {
     
     println!("VimKit 0.0.1");
+    
+    
 
    
 
