@@ -1,6 +1,7 @@
 use std::io;
 use std::env;
 use terminal_spinners::{SpinnerBuilder, DOTS};
+use std::process::Command;
 
 
 //use and array to store urls
@@ -34,11 +35,31 @@ struct repoInfo {
 }
 
 impl repoUrl {
-    fn checkLiteral() {
+    fn checkLiteral(&self) -> bool {
 
-
-      
+       if self.url.contains("http://github.com") {
+           return true
+        } else {
+            return false
+        }
      
+    }
+
+    fn checkRepo(&self) -> bool {
+
+        //need to make url an api request to check status
+        let output = Command::new("curl")
+            .arg(&self.url)
+            .output()
+            .expect("Failed to execute process");
+
+        //use to request data to determine status of repo
+        let checkResult = output.stdout;
+
+        return true
+
+
+
     }
 }
 
@@ -51,6 +72,7 @@ fn custom() {
     let customUrl =  repoUrl {
 
         url: customInput.to_string(),
+        
     };
 
 
