@@ -54,7 +54,8 @@ impl repoUrl {
             .expect("Failed to execute process");
 
         //use to request data to determine status of repo
-        let checkResult = output.stdout;
+        let checkResult = String::from_utf8_lossy(&output.stdout);
+        
 
         return true
 
