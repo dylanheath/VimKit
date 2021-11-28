@@ -18,6 +18,11 @@ const COLORSCHEMES: &'static [&'static str] =  &["PlaceHolder"];
 //plugins
 const PLUGINS: &'static [&'static str] = &["PlaceHolder"];
 
+//configuration
+const CONFIGURATION: &'static [&'static str] = &["syntax on","smartindent",
+"noerrorbells", "nowrap", "backspace=2", "noswapfile", "smartcase", "nobackup"
+, "incsearch", "nocompatible", "filetype plugin indent on"];
+
 #[derive(Debug)]
 struct repoUrl {
     url: String,
