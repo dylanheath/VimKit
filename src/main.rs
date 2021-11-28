@@ -44,10 +44,14 @@ impl repoUrl {
 
         if self.url.contains("https://github.com") {
                  let handle = SpinnerBuilder::new().spinner(&DOTS).text("    Checking Repository Status").start();  
+                 let urlLength = *&self.url.len();
+                 let urlToApi = &self.url[18..urlLength];
+
+                 let apiUrl = ["https://api.github.com/repos", urlToApi].join("");
 
                  //need to make url an api request to check status
                  let output = Command::new("curl")
-                                     .arg(&self.url)
+                                     .arg(apiUrl)
                                      .output()
                                      .expect("Failed to execute process");
 
@@ -97,11 +101,11 @@ fn custom() {
 
     customUrl.checkRepo();
 
-
-
-
-
-
+    if customUrl.valid == true {
+        //getRepo function
+    } else if customUrl.valid == false {
+        custom()
+    }
 
 
 }
