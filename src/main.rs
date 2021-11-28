@@ -5,6 +5,8 @@ use std::ptr::null;
 use terminal_spinners::{SpinnerBuilder, DOTS};
 use std::process::Command;
 
+//default mac location "HOME"/.vimrc"
+
 
 //use and array to store urls
 
@@ -44,6 +46,7 @@ impl repoUrl {
 
         if self.url.contains("https://github.com") {
                  let handle = SpinnerBuilder::new().spinner(&DOTS).text("    Checking Repository Status").start();  
+
                  let urlLength = *&self.url.len();
                  let urlToApi = &self.url[18..urlLength];
 
