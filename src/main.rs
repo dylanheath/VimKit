@@ -27,6 +27,19 @@ const PLUGINS: &'static [&'static str] = &["'preservim/nerdtree'" , "'easymotion
 "'turbio/bracey.vim'", "'xuyuanp/nerdtree-git-plugin'"];
 
 //add language specific plugins
+const PYTHON_PLUGINS: &'static [&'static str] = &["PlaceHolder"];
+
+const JAVA_PLUGINS: &'static [&'static str] = &["PlaceHolder"];
+
+const C_PLUGINS: &'static [&'static str] = &["PlaceHolder"];
+
+const CPP_PLUGINS: &'static [&'static str] = &["PlaceHolder"];
+
+const RUST_PLUGINS: &'static [&'static str] = &["PlaceHolder"];
+
+const TYPESCRIPT_PLUGINS: &'static [&'static str] = &["PlaceHolder"];
+
+const GO_PLUGINS: &'static [&'static str] = &["PlaceHolder"];
 
 //configuration
 const CONFIGURATION: &'static [&'static str] = &["syntax on","smartindent",
