@@ -1,6 +1,7 @@
 use std::fmt::Error;
 use std::io;
 use std::env;
+use std::ptr::null;
 use terminal_spinners::{SpinnerBuilder, DOTS};
 use std::process::Command;
 
@@ -53,10 +54,17 @@ impl repoUrl {
                 //use to request data to determine status of repo
                  let checkResult = String::from_utf8_lossy(&output.stdout);
 
+                 if checkResult.contains("id") {
+                     &self.valid == &true;
+                 } else if  checkResult.contains("message") {
+                     &self.valid == &false;
+                     return Err("repository is either invalid or Private");
+                     
+                 }
+
                  std::thread::sleep(std::time::Duration::from_secs(3));
                  handle.done();
     
-                 &self.valid == &true;
 
                  Ok(())
                 
@@ -86,6 +94,10 @@ fn custom() {
         valid: false,
         
     };
+
+    customUrl.checkRepo();
+
+
 
 
 
