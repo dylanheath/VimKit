@@ -5,7 +5,10 @@ use std::ptr::null;
 use terminal_spinners::{SpinnerBuilder, DOTS};
 use std::process::Command;
 
-//default mac location "HOME"/.vimrc"
+//run command
+//curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+//https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
 
 
 //use and array to store urls
@@ -13,15 +16,18 @@ use std::process::Command;
 
 //colorschemes
 
-const COLORSCHEMES: &'static [&'static str] =  &["PlaceHolder"];
+const COLORSCHEMES: &'static [&'static str] =  &["morhetz/gruvbox"
+, "Mangeshrex/uwu.vim", "joshdick/onedark.vim", "arcticicestudio/nord-vim",
+"dracula/vim', { 'as': 'dracula' }" , "sainnhe/sonokai" , "sainnhe/gruvbox-material",
+"sainnhe/everforest", "NLKNguyen/papercolor-theme"];
 
-//plugins
+
 const PLUGINS: &'static [&'static str] = &["PlaceHolder"];
 
 //configuration
 const CONFIGURATION: &'static [&'static str] = &["syntax on","smartindent",
 "noerrorbells", "nowrap", "backspace=2", "noswapfile", "smartcase", "nobackup"
-, "incsearch", "nocompatible", "filetype plugin indent on"];
+, "incsearch", "nocompatible", "filetype plugin indent on", "syntax enable"];
 
 #[derive(Debug)]
 struct repoUrl {
