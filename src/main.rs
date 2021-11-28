@@ -26,7 +26,8 @@ const PLUGINS: &'static [&'static str] = &["'preservim/nerdtree'" , "'easymotion
 "'tpope/vim-fugitive'", "'neoclide/coc.nvim' {'branch': 'release'}", "'scrooloose/syntastic'",
 "'turbio/bracey.vim'", "'xuyuanp/nerdtree-git-plugin'"];
 
-//add language specific plugins
+//add language specific plugins (will do this later on I cba)
+//
 const PYTHON_PLUGINS: &'static [&'static str] = &["PlaceHolder"];
 
 const JAVA_PLUGINS: &'static [&'static str] = &["PlaceHolder"];
@@ -114,6 +115,12 @@ impl repoUrl {
 
 
 
+
+    }
+
+    fn getRepo(&self) {
+
+        //pass through url display error/success message
 
     }
 }
