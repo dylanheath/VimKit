@@ -22,7 +22,11 @@ const COLORSCHEMES: &'static [&'static str] =  &["morhetz/gruvbox"
 "sainnhe/everforest", "NLKNguyen/papercolor-theme"];
 
 
-const PLUGINS: &'static [&'static str] = &["PlaceHolder"];
+const PLUGINS: &'static [&'static str] = &["'preservim/nerdtree'" , "'easymotion/vim-easymotion'",
+"'tpope/vim-fugitive'", "'neoclide/coc.nvim' {'branch': 'release'}", "'scrooloose/syntastic'",
+"'turbio/bracey.vim'", "'xuyuanp/nerdtree-git-plugin'"];
+
+//add language specific plugins
 
 //configuration
 const CONFIGURATION: &'static [&'static str] = &["syntax on","smartindent",
