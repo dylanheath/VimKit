@@ -120,6 +120,9 @@ impl repoUrl {
 
     fn getRepo(&self) {
 
+        //write to vimrc file "HOME" then PlugInstall or download packages then source % write to
+        //vimrc
+
         //pass through url display error/success message
 
     }
