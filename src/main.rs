@@ -33,9 +33,7 @@ const PYTHON_PLUGINS: &'static [&'static str] = &["'hdima/python-syntax'", "'dav
 
 const JAVA_PLUGINS: &'static [&'static str] = &["'neoclide/coc-java'" , ""];
 
-const C_PLUGINS: &'static [&'static str] = &["'vim-scripts/c.vim'",  "'octol/vim-cpp-enhanced-highlight'"];
-
-const CPP_PLUGINS: &'static [&'static str] = &["PlaceHolder"];
+const C_and_CPP_PLUGINS: &'static [&'static str] = &["'vim-scripts/c.vim'",  "'octol/vim-cpp-enhanced-highlight'"];
 
 const RUST_PLUGINS: &'static [&'static str] = &["'neoclide/coc-rls'"];
 
