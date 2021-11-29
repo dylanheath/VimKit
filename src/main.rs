@@ -28,15 +28,16 @@ const PLUGINS: &'static [&'static str] = &["'preservim/nerdtree'" , "'easymotion
 
 //add language specific plugins (will do this later on I cba)
 //
-const PYTHON_PLUGINS: &'static [&'static str] = &["'hdima/python-syntax'", ""];
+const PYTHON_PLUGINS: &'static [&'static str] = &["'hdima/python-syntax'", "'davidhalter/jedi-vim'" ,
+""];
 
 const JAVA_PLUGINS: &'static [&'static str] = &["'neoclide/coc-java'" , ""];
 
-const C_PLUGINS: &'static [&'static str] = &["PlaceHolder"];
+const C_PLUGINS: &'static [&'static str] = &["'vim-scripts/c.vim'",  "'octol/vim-cpp-enhanced-highlight'"];
 
 const CPP_PLUGINS: &'static [&'static str] = &["PlaceHolder"];
 
-const RUST_PLUGINS: &'static [&'static str] = &["PlaceHolder"];
+const RUST_PLUGINS: &'static [&'static str] = &["'neoclide/coc-rls'"];
 
 const TYPESCRIPT_PLUGINS: &'static [&'static str] = &["'neoclide/coc-tslint'", "'neoclide/coc-tsserver'"];
 
