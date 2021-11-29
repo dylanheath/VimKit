@@ -24,13 +24,13 @@ const COLORSCHEMES: &'static [&'static str] =  &["morhetz/gruvbox"
 
 const PLUGINS: &'static [&'static str] = &["'preservim/nerdtree'" , "'easymotion/vim-easymotion'",
 "'tpope/vim-fugitive'", "'neoclide/coc.nvim' {'branch': 'release'}", "'scrooloose/syntastic'",
-"'turbio/bracey.vim'", "'xuyuanp/nerdtree-git-plugin'"];
+"'turbio/bracey.vim'", "'xuyuanp/nerdtree-git-plugin'", "'neoclide/coc-snippets'"];
 
 //add language specific plugins (will do this later on I cba)
 //
-const PYTHON_PLUGINS: &'static [&'static str] = &["PlaceHolder"];
+const PYTHON_PLUGINS: &'static [&'static str] = &["'hdima/python-syntax'", ""];
 
-const JAVA_PLUGINS: &'static [&'static str] = &["PlaceHolder"];
+const JAVA_PLUGINS: &'static [&'static str] = &["'neoclide/coc-java'" , ""];
 
 const C_PLUGINS: &'static [&'static str] = &["PlaceHolder"];
 
@@ -38,7 +38,7 @@ const CPP_PLUGINS: &'static [&'static str] = &["PlaceHolder"];
 
 const RUST_PLUGINS: &'static [&'static str] = &["PlaceHolder"];
 
-const TYPESCRIPT_PLUGINS: &'static [&'static str] = &["PlaceHolder"];
+const TYPESCRIPT_PLUGINS: &'static [&'static str] = &["'neoclide/coc-tslint'", "'neoclide/coc-tsserver'"];
 
 const GO_PLUGINS: &'static [&'static str] = &["PlaceHolder"];
 
