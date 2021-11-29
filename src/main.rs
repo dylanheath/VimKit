@@ -35,11 +35,11 @@ const JAVA_PLUGINS: &'static [&'static str] = &["'neoclide/coc-java'" , ""];
 
 const C_and_CPP_PLUGINS: &'static [&'static str] = &["'vim-scripts/c.vim'",  "'octol/vim-cpp-enhanced-highlight'"];
 
-const RUST_PLUGINS: &'static [&'static str] = &["'neoclide/coc-rls'"];
+const RUST_PLUGINS: &'static [&'static str] = &["'neoclide/coc-rls'" , "'timonv/vim-cargo'"];
 
 const TYPESCRIPT_PLUGINS: &'static [&'static str] = &["'neoclide/coc-tslint'", "'neoclide/coc-tsserver'"];
 
-const GO_PLUGINS: &'static [&'static str] = &["PlaceHolder"];
+const GO_PLUGINS: &'static [&'static str] = &["'fatih/vim-go'"];
 
 //configuration
 const CONFIGURATION: &'static [&'static str] = &["syntax on","smartindent",
