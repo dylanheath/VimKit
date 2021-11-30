@@ -4,6 +4,7 @@ use std::env;
 use std::ptr::null;
 use terminal_spinners::{SpinnerBuilder, DOTS};
 use std::process::Command;
+use std::path::Path;
 
 //run command
 //curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
@@ -121,15 +122,16 @@ impl repoUrl {
 
     }
 
-    fn getRepo(&self) {
 
         //write to vimrc file "HOME" then PlugInstall or download packages then source % write to
         //vimrc
 
         //pass through url display error/success message
 
-    }
 }
+
+
+
 
 fn custom() {
     
@@ -148,7 +150,8 @@ fn custom() {
     customUrl.checkRepo();
 
     if customUrl.valid == true {
-        //getRepo function
+        //check if repo is valid
+        //fron array write to vimrc file
     } else if customUrl.valid == false {
         custom()
     }
@@ -159,7 +162,18 @@ fn custom() {
 
 fn default() {
 
+
+
+
 }
+
+
+fn setup() {
+
+
+}
+
+
 
 //be able to import and export config file / plugin list
 //check for vimrc file, either create or edit one
@@ -168,6 +182,7 @@ fn default() {
 fn main() {
     
     println!("VimKit 0.0.1");
+
     
     
 
