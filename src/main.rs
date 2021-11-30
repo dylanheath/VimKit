@@ -48,7 +48,7 @@ const CONFIGURATION: &'static [&'static str] = &["syntax on","smartindent",
 , "incsearch", "nocompatible", "filetype plugin indent on", "syntax enable"];
 
 //Plug variables
-//const PLUG: &'static [&'static str] = &["PlaceHolder"];
+const PLUG: &'static [&'static str] = &["PlaceHolder"];
 
 #[derive(Debug)]
 struct repoUrl {
@@ -162,6 +162,8 @@ fn default() {
 }
 
 //be able to import and export config file / plugin list
+//check for vimrc file, either create or edit one
+//Run commands for package managers such as Vundle, Plug etc
 
 fn main() {
     
