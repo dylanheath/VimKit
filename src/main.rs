@@ -128,6 +128,8 @@ impl repoUrl {
 }
 
 fn custom() {
+    
+    //allow multiple entries
 
     let mut customInput = String::new();
     io::stdin().read_line(&mut customInput).expect("Could not read line");
@@ -154,6 +156,8 @@ fn custom() {
 fn default() {
 
 }
+
+//be able to import and export config file / plugin list
 
 fn main() {
     
