@@ -24,7 +24,8 @@ const COLORSCHEMES: &'static [&'static str] =  &["morhetz/gruvbox"
 
 const PLUGINS: &'static [&'static str] = &["'preservim/nerdtree'" , "'easymotion/vim-easymotion'",
 "'tpope/vim-fugitive'", "'neoclide/coc.nvim' {'branch': 'release'}", "'scrooloose/syntastic'",
-"'turbio/bracey.vim'", "'xuyuanp/nerdtree-git-plugin'", "'neoclide/coc-snippets'"];
+"'turbio/bracey.vim'", "'xuyuanp/nerdtree-git-plugin'", "'neoclide/coc-snippets'" , "'benmills/vimux'", 
+"'christoomey/vim-tmux-navigator'",  "'yuttie/comfortable-motion.vim'"];
 
 //add language specific plugins (will do this later on I cba)
 //
