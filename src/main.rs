@@ -47,6 +47,9 @@ const CONFIGURATION: &'static [&'static str] = &["syntax on","smartindent",
 "noerrorbells", "nowrap", "backspace=2", "noswapfile", "smartcase", "nobackup"
 , "incsearch", "nocompatible", "filetype plugin indent on", "syntax enable"];
 
+//Plug variables
+//const PLUG: &'static [&'static str] = &["PlaceHolder"];
+
 #[derive(Debug)]
 struct repoUrl {
     url: String,
