@@ -2,6 +2,7 @@ use std::fmt::Error;
 use std::io;
 use std::os;
 use std::env;
+use std::path::PathBuf;
 use std::ptr::null;
 use terminal_spinners::{SpinnerBuilder, DOTS};
 use std::process::Command;
@@ -133,6 +134,33 @@ impl repoUrl {
 
 }
 
+#[derive(Debug)]
+struct vimrc {
+
+    path: PathBuf,
+    exists: bool,
+
+}
+
+impl vimrc {
+
+
+    fn checkVimrc(&self) -> Result<() , &str> {
+
+        if self.path.exists() {
+            &self.exists == &true;
+            Ok(())
+        } else {
+            &self.exists == &false;
+            return Err("Couldn't find vimrc file")
+            
+        } 
+        
+
+    }
+}
+
+
 
 
 
@@ -194,6 +222,16 @@ fn main() {
     let currentUser = String::from_utf8_lossy(&output.stdout);
 
     let vimrcPath = ["/Users/", &currentUser, "/.vimrc"].join("");
+
+    let path = Path::new(&vimrcPath);
+
+    let currentPath = vimrc {
+       path: PathBuf::from(path),
+       exists: true,
+    };
+    
+    currentPath.checkVimrc(); 
+
 
     let mut menu = String::new();
     io::stdin().read_line(&mut menu).expect("Failed to read line");
