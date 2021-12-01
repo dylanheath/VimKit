@@ -209,10 +209,10 @@ fn menu(currentUser: vimrc ) {
 
 fn main() {
     
-    println!("VimKit 0.0.1");
+    println!("VimKit\n");
 
     //random loading sentences
-    let handle =  SpinnerBuilder::new().spinner(&DOTS).text("    Grabbing Vimrc").start();
+    let handle =  SpinnerBuilder::new().spinner(&DOTS).text("Grabbing Vimrc").start();
 
     //get current user
     let output = Command::new("echo")
@@ -237,6 +237,14 @@ fn main() {
     handle.done();
 
     if currentPath.exists == true {
+        let plug = Command::new("curl")
+                                .arg("fLo")
+                                .arg("~/.vim/autoload/plug.vim")
+                                .arg("--create-dirs")
+                                .arg(r#"\"#)
+                                .arg("https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim")
+                                .output()
+                                .expect("Failed to download vim plug");
         menu(currentPath);
     } else if currentPath.exists == false {
         println!("Failed to get Vimrc path");
