@@ -1,10 +1,14 @@
 use std::fmt::Error;
 use std::io;
+use std::os;
 use std::env;
 use std::ptr::null;
 use terminal_spinners::{SpinnerBuilder, DOTS};
 use std::process::Command;
 use std::path::Path;
+use directories::{BaseDirs, UserDirs, ProjectDirs};
+
+extern crate dirs;
 
 //run command
 //curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
@@ -113,7 +117,6 @@ impl repoUrl {
             &self.valid == &false;
             return Err("Entered repository isn't Valid or is Private");
 
-
         }
 
 
@@ -168,10 +171,6 @@ fn default() {
 }
 
 
-fn setup() {
-
-
-}
 
 
 
@@ -183,6 +182,21 @@ fn main() {
     
     println!("VimKit 0.0.1");
 
+    //random loading sentences
+    let handle =  SpinnerBuilder::new().spinner(&DOTS).text("  ").start();
+
+    let homeDirectory =  dirs::home_dir();
+
+
+    let mut menu = String::new();
+    io::stdin().read_line(&mut menu).expect("Failed to read line");
+    let menu = menu.trim();
+
+
+
+
+    std::thread::sleep(std::time::Duration::from_secs(3));
+    handle.done();
     
     
 
