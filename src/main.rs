@@ -185,8 +185,15 @@ fn main() {
     //random loading sentences
     let handle =  SpinnerBuilder::new().spinner(&DOTS).text("  ").start();
 
-    let homeDirectory =  dirs::home_dir();
+    //get current user
+    let output = Command::new("echo")
+                            .arg("$USER")
+                            .output()
+                            .expect("Failed to get current user");
 
+    let currentUser = String::from_utf8_lossy(&output.stdout);
+
+    let vimrcPath = ["/Users/", &currentUser, "/.vimrc"].join("");
 
     let mut menu = String::new();
     io::stdin().read_line(&mut menu).expect("Failed to read line");
@@ -199,8 +206,5 @@ fn main() {
     handle.done();
     
     
-
-   
-
 
 }
