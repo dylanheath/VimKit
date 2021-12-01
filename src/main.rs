@@ -53,8 +53,7 @@ const CONFIGURATION: &'static [&'static str] = &["syntax on","smartindent",
 "noerrorbells", "nowrap", "backspace=2", "noswapfile", "smartcase", "nobackup"
 , "incsearch", "nocompatible", "filetype plugin indent on", "syntax enable"];
 
-//Plug variables
-const PLUG: &'static [&'static str] = &["PlaceHolder"];
+
 
 #[derive(Debug)]
 struct repoUrl {
@@ -213,7 +212,7 @@ fn main() {
     println!("VimKit 0.0.1");
 
     //random loading sentences
-    let handle =  SpinnerBuilder::new().spinner(&DOTS).text("  ").start();
+    let handle =  SpinnerBuilder::new().spinner(&DOTS).text("    Grabbing Vimrc").start();
 
     //get current user
     let output = Command::new("echo")
@@ -234,20 +233,13 @@ fn main() {
     
     currentPath.checkVimrc(); 
 
+    std::thread::sleep(std::time::Duration::from_secs(3));
+    handle.done();
+
     if currentPath.exists == true {
         menu(currentPath);
     } else if currentPath.exists == false {
-        println!("Failed to get Vimrc location");
+        println!("Failed to get Vimrc path");
     } 
-
-    let mut menu = String::new();
-    io::stdin().read_line(&mut menu).expect("Failed to read line");
-    let menu = menu.trim();
-
-
-    std::thread::sleep(std::time::Duration::from_secs(3));
-    handle.done();
-    
-    
 
 }
