@@ -198,7 +198,9 @@ fn default() {
 
 }
 
+fn menu(currentUser: vimrc ) {
 
+}
 
 
 
@@ -232,12 +234,15 @@ fn main() {
     
     currentPath.checkVimrc(); 
 
+    if currentPath.exists == true {
+        menu(currentPath);
+    } else if currentPath.exists == false {
+        println!("Failed to get Vimrc location");
+    } 
 
     let mut menu = String::new();
     io::stdin().read_line(&mut menu).expect("Failed to read line");
     let menu = menu.trim();
-
-
 
 
     std::thread::sleep(std::time::Duration::from_secs(3));
