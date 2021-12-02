@@ -159,7 +159,17 @@ impl vimrc {
     }
 }
 
+#[derive(Debug)]
+struct defaultRepo {
+    url: String,
+    valid: bool,
+}
 
+impl defaultRepo{
+    fn checkRepo() {
+
+    }
+}
 
 
 
@@ -191,7 +201,7 @@ fn custom(currentUser: vimrc) {
 
 
 fn default(currentUser: vimrc) {
-
+//go through default plugins and check if they're public or deprecated
 
 
 
