@@ -166,7 +166,7 @@ struct defaultRepo {
 }
 
 impl defaultRepo{
-    fn checkRepo() {
+    fn checkRepo(&self) {
 
     }
 }
@@ -203,6 +203,17 @@ fn custom(currentUser: vimrc) {
 fn default(currentUser: vimrc) {
 //go through default plugins and check if they're public or deprecated
 
+
+    for i in 0..PLUGINS.len() {
+
+        let currentPlugin = defaultRepo {
+            url: PLUGINS[i].to_string(),
+            valid: false,
+        };
+         
+        currentPlugin.checkRepo();
+        
+    }
 
 
 }
