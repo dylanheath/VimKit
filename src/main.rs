@@ -28,10 +28,10 @@ const COLORSCHEMES: &'static [&'static str] =  &["morhetz/gruvbox"
 "sainnhe/everforest", "NLKNguyen/papercolor-theme"];
 
 
-const PLUGINS: &'static [&'static str] = &["'preservim/nerdtree'" , "'easymotion/vim-easymotion'",
-"'tpope/vim-fugitive'", "'neoclide/coc.nvim' {'branch': 'release'}", "'scrooloose/syntastic'",
-"'turbio/bracey.vim'", "'xuyuanp/nerdtree-git-plugin'", "'neoclide/coc-snippets'" , "'benmills/vimux'", 
-"'christoomey/vim-tmux-navigator'",  "'yuttie/comfortable-motion.vim'"];
+const PLUGINS: &'static [&'static str] = &["preservim/nerdtree" , "easymotion/vim-easymotion",
+"tpope/vim-fugitive", "neoclide/coc.nvim {'branch': 'release'}", "scrooloose/syntastic",
+"turbio/bracey.vim", "xuyuanp/nerdtree-git-plugin", "neoclide/coc-snippets" , "benmills/vimux", 
+"christoomey/vim-tmux-navigator",  "yuttie/comfortable-motion.vim"];
 
 //add language specific plugins (will do this later on I cba)
 //
@@ -166,7 +166,31 @@ struct defaultRepo {
 }
 
 impl defaultRepo{
-    fn checkRepo(&self) {
+    fn checkRepo(&self) -> Result<(), &str> {
+
+        let urlLength = *&self.url.len();
+        
+        let apiUrl = ["https://api.github.com/repos/" , &self.url].join("");
+
+        let output = Command::new("curl")
+                                .arg(apiUrl)
+                                .output()
+                                .expect("Failed to execute command");
+
+        let repoResult = String::from_utf8_lossy(&output.stdout);
+        
+        if repoResult.contains("id") {
+            &self.valid == &true;
+        } else if repoResult.contains("message") {
+            &self.valid == &false;
+            return Err("repository is either invalid or Private");
+        } else {
+            &self.valid == &false;
+            return Err("Couldn't get repository information");
+        }
+
+        Ok(())
+
 
     }
 }
@@ -203,15 +227,16 @@ fn custom(currentUser: vimrc) {
 fn default(currentUser: vimrc) {
 //go through default plugins and check if they're public or deprecated
 
-
+    let mut activeRepo = [""];
     for i in 0..PLUGINS.len() {
 
-        let currentPlugin = defaultRepo {
+        let mut  currentPlugin = defaultRepo {
             url: PLUGINS[i].to_string(),
             valid: false,
         };
          
         currentPlugin.checkRepo();
+        
         
     }
 
