@@ -233,9 +233,6 @@ fn main() {
     
     currentPath.checkVimrc(); 
 
-    std::thread::sleep(std::time::Duration::from_secs(3));
-    handle.done();
-
     if currentPath.exists == true {
         let plug = Command::new("curl")
                                 .arg("-fLo")
@@ -249,6 +246,9 @@ fn main() {
         let plug = ["/Users" , &currentUser , "/.vim/autoload/plug.vim"].join(""); 
 
         let plugPath  = Path::new(&plug);
+
+        std::thread::sleep(std::time::Duration::from_secs(3));
+        handle.done();
 
         if PathBuf::from(plugPath).exists() {
 
