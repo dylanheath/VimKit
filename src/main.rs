@@ -163,7 +163,7 @@ impl vimrc {
 
 
 
-fn custom() {
+fn custom(currentUser: vimrc) {
     
     //allow multiple entries
 
@@ -183,14 +183,14 @@ fn custom() {
         //check if repo is valid
         //fron array write to vimrc file
     } else if customUrl.valid == false {
-        custom()
+        custom(currentUser);
     }
 
 
 }
 
 
-fn default() {
+fn default(currentUser: vimrc) {
 
 
 
@@ -198,6 +198,21 @@ fn default() {
 }
 
 fn menu(currentUser: vimrc ) {
+    println!("[*] installation\n");
+    println!("[1] default\n");
+    println!("[2] custom");
+
+    let mut menuInput = String::new();
+    io::stdin().read_line(&mut menuInput).expect("Failed to get line");
+    let menuInput =  menuInput.trim();
+
+    if menuInput == "1" {
+        default(currentUser);
+    } else if menuInput == "2" {
+        custom(currentUser);
+    } else {
+        menu(currentUser);
+    }
 
 }
 
@@ -212,7 +227,7 @@ fn main() {
     println!("VimKit\n");
 
     //random loading sentences
-    let handle =  SpinnerBuilder::new().spinner(&DOTS).text("Grabbing Vimrc").start();
+    let handle =  SpinnerBuilder::new().spinner(&DOTS).text("Creating Vimrc").start();
 
     //get current user
     let output = Command::new("echo")
