@@ -245,9 +245,23 @@ fn main() {
                                 .arg("https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim")
                                 .output()
                                 .expect("Failed to download vim plug");
+        
+        let plug = ["/Users" , &currentUser , "/.vim/autoload/plug.vim"].join(""); 
+
+        let plugPath  = Path::new(&plug);
+
+        if PathBuf::from(plugPath).exists() {
+
+            menu(currentPath)
+
+        } else {
+            println!("Failed to download vim plug")
+        }
 
 
-        menu(currentPath);
+        
+
+
     } else if currentPath.exists == false {
         println!("Failed to get Vimrc path");
     } 
