@@ -238,13 +238,15 @@ fn main() {
 
     if currentPath.exists == true {
         let plug = Command::new("curl")
-                                .arg("fLo")
+                                .arg("-fLo")
                                 .arg("~/.vim/autoload/plug.vim")
                                 .arg("--create-dirs")
                                 .arg(r#"\"#)
                                 .arg("https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim")
                                 .output()
                                 .expect("Failed to download vim plug");
+
+
         menu(currentPath);
     } else if currentPath.exists == false {
         println!("Failed to get Vimrc path");
