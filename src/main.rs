@@ -228,16 +228,22 @@ fn custom(currentUser: vimrc) {
 fn default(currentUser: vimrc) {
 //go through default plugins and check if they're public or deprecated
 
-    let mut Repo = vec!["preservim/nerdtree" , "easymotion/vim-easymotion",
+    let mut RepoPlugin = vec!["preservim/nerdtree" , "easymotion/vim-easymotion",
     "tpope/vim-fugitive", "neoclide/coc.nvim {'branch': 'release'}", "scrooloose/syntastic",
     "turbio/bracey.vim", "xuyuanp/nerdtree-git-plugin", "neoclide/coc-snippets" , "benmills/vimux", 
     "christoomey/vim-tmux-navigator",  "yuttie/comfortable-motion.vim"];
 
+    let mut RepoColorscheme = vec!["morhetz/gruvbox"
+    , "Mangeshrex/uwu.vim", "joshdick/onedark.vim", "arcticicestudio/nord-vim",
+    "dracula/vim', { 'as': 'dracula' }" , "sainnhe/sonokai" , "sainnhe/gruvbox-material",
+    "sainnhe/everforest", "NLKNguyen/papercolor-theme"];
 
-    for i in 0..Repo.len() {
+
+
+    for i in 0..RepoPlugin.len() {
 
         let currentPlugin = defaultRepo {
-            url: Repo[i].to_string(),
+            url: RepoPlugin[i].to_string(),
             valid: false,
         };
 
@@ -249,10 +255,26 @@ fn default(currentUser: vimrc) {
             //write to vimrc
             
         } else if currentPlugin.valid == false {
-            Repo.retain(|&x| x != currentPlugin.url)
+            RepoPlugin.retain(|&x| x != currentPlugin.url)
 
         }
 
+    }
+
+    for i in 0..RepoColorscheme.len() {
+        let currentPlugin = defaultRepo {
+            url: RepoColorscheme[i].to_string(),
+            valid: false,
+        };
+
+        currentPlugin.checkRepo();
+
+        if currentPlugin.valid == true {
+            //write to vimrc
+        
+        } else if currentPlugin.valid == false {
+            RepoColorscheme.retain(|&x| x != currentPlugin.url)
+        }
     }
 
     //continue
