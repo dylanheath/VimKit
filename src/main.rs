@@ -19,6 +19,7 @@ extern crate dirs;
 
 //use and array to store urls
 
+//make the arrays not static
 
 //colorschemes
 
@@ -227,19 +228,20 @@ fn custom(currentUser: vimrc) {
 fn default(currentUser: vimrc) {
 //go through default plugins and check if they're public or deprecated
 
-    let mut activeRepo = [""];
+    let mut activeRepo = vec![""];
     for i in 0..PLUGINS.len() {
 
-        let mut  currentPlugin = defaultRepo {
+        let currentPlugin = defaultRepo {
             url: PLUGINS[i].to_string(),
             valid: false,
         };
+
+
          
         currentPlugin.checkRepo();
-        
-        
-    }
 
+
+    }
 
 }
 
