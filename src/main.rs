@@ -2,6 +2,8 @@ use std::fmt::Error;
 use std::io;
 use std::os;
 use std::env;
+use std::fs;
+use std::fs::File;
 use std::path::PathBuf;
 use std::ptr::null;
 use terminal_spinners::{SpinnerBuilder, DOTS};
@@ -225,8 +227,14 @@ fn custom(currentUser: vimrc) {
 }
 
 
-fn default(currentUser: vimrc) {
+fn default(currentPath: vimrc) {
 //go through default plugins and check if they're public or deprecated
+
+    let path = Path::new(&currentPath.path);
+
+    let Configuration = vec!["syntax on","smartindent",
+    "noerrorbells", "nowrap", "backspace=2", "noswapfile", "smartcase", "nobackup"
+    , "incsearch", "nocompatible", "filetype plugin indent on", "syntax enable"];
 
     let mut RepoPlugin = vec!["preservim/nerdtree" , "easymotion/vim-easymotion",
     "tpope/vim-fugitive", "neoclide/coc.nvim {'branch': 'release'}", "scrooloose/syntastic",
@@ -240,15 +248,17 @@ fn default(currentUser: vimrc) {
 
 
 
+    for i in 0..Configuration.len() {
+        fs::write(path, Configuration[i]).expect("Failed to write to vimrc");
+    }
+
+
     for i in 0..RepoPlugin.len() {
 
         let currentPlugin = defaultRepo {
             url: RepoPlugin[i].to_string(),
             valid: false,
-        };
-
-
-         
+        }; 
         currentPlugin.checkRepo();
 
         if currentPlugin.valid == true {
@@ -266,7 +276,6 @@ fn default(currentUser: vimrc) {
             url: RepoColorscheme[i].to_string(),
             valid: false,
         };
-
         currentPlugin.checkRepo();
 
         if currentPlugin.valid == true {
@@ -281,7 +290,7 @@ fn default(currentUser: vimrc) {
 
 }
 
-fn menu(currentUser: vimrc ) {
+fn menu(currentPath: vimrc ) {
     println!("[*] installation\n");
     println!("[1] default\n");
     println!("[2] custom");
@@ -291,11 +300,11 @@ fn menu(currentUser: vimrc ) {
     let menuInput =  menuInput.trim();
 
     if menuInput == "1" {
-        default(currentUser);
+        default(currentPath);
     } else if menuInput == "2" {
-        custom(currentUser);
+        custom(currentPath);
     } else {
-        menu(currentUser);
+        menu(currentPath);
     }
 
 }
