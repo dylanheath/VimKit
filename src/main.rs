@@ -228,11 +228,16 @@ fn custom(currentUser: vimrc) {
 fn default(currentUser: vimrc) {
 //go through default plugins and check if they're public or deprecated
 
-    let mut activeRepo = vec![""];
-    for i in 0..PLUGINS.len() {
+    let mut Repo = vec!["preservim/nerdtree" , "easymotion/vim-easymotion",
+    "tpope/vim-fugitive", "neoclide/coc.nvim {'branch': 'release'}", "scrooloose/syntastic",
+    "turbio/bracey.vim", "xuyuanp/nerdtree-git-plugin", "neoclide/coc-snippets" , "benmills/vimux", 
+    "christoomey/vim-tmux-navigator",  "yuttie/comfortable-motion.vim"];
+
+
+    for i in 0..Repo.len() {
 
         let currentPlugin = defaultRepo {
-            url: PLUGINS[i].to_string(),
+            url: Repo[i].to_string(),
             valid: false,
         };
 
@@ -240,8 +245,17 @@ fn default(currentUser: vimrc) {
          
         currentPlugin.checkRepo();
 
+        if currentPlugin.valid == true {
+            //write to vimrc
+            
+        } else if currentPlugin.valid == false {
+            Repo.retain(|&x| x != currentPlugin.url)
+
+        }
 
     }
+
+    //continue
 
 }
 
