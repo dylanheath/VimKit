@@ -230,7 +230,7 @@ fn custom(currentUser: vimrc) {
 fn default(currentPath: vimrc) {
 //go through default plugins and check if they're public or deprecated
     
-    let handle =  SpinnerBuilder::new().spinner(&DOTS).text("Creating Vimrc").start();
+    let handle =  SpinnerBuilder::new().spinner(&DOTS).text("Writing to vimrc").start();
 
     let path = Path::new(&currentPath.path);
 
@@ -253,7 +253,10 @@ fn default(currentPath: vimrc) {
     for i in 0..Configuration.len() {
         fs::write(path, Configuration[i]).expect("Failed to write to vimrc");
     }
+     
+    //plug variables
 
+    fs::write(path, "call plug#begin('~/.vim/plugged')");
 
     for i in 0..RepoPlugin.len() {
 
