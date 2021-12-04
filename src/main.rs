@@ -229,6 +229,8 @@ fn custom(currentUser: vimrc) {
 
 fn default(currentPath: vimrc) {
 //go through default plugins and check if they're public or deprecated
+    
+    let handle =  SpinnerBuilder::new().spinner(&DOTS).text("Creating Vimrc").start();
 
     let path = Path::new(&currentPath.path);
 
@@ -285,6 +287,8 @@ fn default(currentPath: vimrc) {
             RepoColorscheme.retain(|&x| x != currentPlugin.url)
         }
     }
+    std::thread::sleep(std::time::Duration::from_secs(3));
+    handle.done();
 
     //continue
 
