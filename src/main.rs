@@ -251,7 +251,7 @@ fn default(currentPath: vimrc) {
 
 
     for i in 0..Configuration.len() {
-        fs::write(path, Configuration[i]).expect("Failed to write to vimrc");
+        fs::write(path , "set".to_string() + Configuration[i]).expect("Failed to write to vimrc");
     }
      
     //plug variables
