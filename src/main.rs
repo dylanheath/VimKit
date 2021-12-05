@@ -267,7 +267,7 @@ fn default(currentPath: vimrc) {
         currentPlugin.checkRepo();
 
         if currentPlugin.valid == true {
-            //write to vimrc
+            fs::write(path, "Plug '".to_string() + &currentPlugin.url + "'");
             
         } else if currentPlugin.valid == false {
             RepoPlugin.retain(|&x| x != currentPlugin.url)
