@@ -323,6 +323,8 @@ fn menu(currentPath: vimrc ) {
 //Run commands for package managers such as Vundle, Plug etc
 
 fn main() {
+     //check if vimrc exists(create or edit)
+     //check if plug is install(install or skip)
     
     println!("VimKit\n");
 
