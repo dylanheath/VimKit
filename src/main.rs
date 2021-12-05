@@ -290,8 +290,11 @@ fn default(currentPath: vimrc) {
             RepoColorscheme.retain(|&x| x != currentPlugin.url)
         }
     }
+
+    //write language plugins
     std::thread::sleep(std::time::Duration::from_secs(3));
     handle.done();
+
 
     //continue
 
@@ -324,7 +327,6 @@ fn menu(currentPath: vimrc ) {
 
 fn main() {
      //check if vimrc exists(create or edit)
-     //check if plug is install(install or skip)
     
     println!("VimKit\n");
 
