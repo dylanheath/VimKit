@@ -248,6 +248,9 @@ fn default(currentPath: vimrc) {
     "dracula/vim', { 'as': 'dracula' }" , "sainnhe/sonokai" , "sainnhe/gruvbox-material",
     "sainnhe/everforest", "NLKNguyen/papercolor-theme"];
 
+    let mut PythonPlugins =  vec!["'hdima/python-syntax'", "'davidhalter/jedi-vim'" ,""];
+    
+
 
 
     for i in 0..Configuration.len() {
