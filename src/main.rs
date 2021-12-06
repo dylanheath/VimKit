@@ -249,6 +249,16 @@ fn default(currentPath: vimrc) {
     "sainnhe/everforest", "NLKNguyen/papercolor-theme"];
 
     let mut PythonPlugins =  vec!["'hdima/python-syntax'", "'davidhalter/jedi-vim'" ,""];
+
+    let mut JavaPlugins = vec!["'neoclide/coc-java'" , ""];
+
+    let mut CppPlugins =  vec!["'vim-scripts/c.vim'",  "'octol/vim-cpp-enhanced-highlight'"];
+
+    let mut RustPlugins = vec!["'neoclide/coc-rls'" , "'timonv/vim-cargo'"];
+
+    let mut TypescriptPlugins = vec!["'neoclide/coc-tslint'", "'neoclide/coc-tsserver'"];
+
+    let mut GoPlugins = vec!["'fatih/vim-go'"];
     
 
 
