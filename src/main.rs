@@ -304,6 +304,24 @@ fn default(currentPath: vimrc) {
         }
     }
 
+
+    for i in 0..PythonPlugins.len() {
+        let currentPlugin = defaultRepo {
+            url: PythonPlugins[i].to_string(),
+            valid: false,
+
+        }
+    };
+
+    currentPlugin.checkRepo();
+
+    if currentPlugin.valid == true {
+        fs::write(path, "Plug '".to_string() + &currentPlugin.url + "'");
+
+    } else if currentPlugin.valid == false {
+        PythonPlugins.retain(|&x| x != currentPlugin.url)
+    }
+
     //write language plugins
     std::thread::sleep(std::time::Duration::from_secs(3));
     handle.done();
