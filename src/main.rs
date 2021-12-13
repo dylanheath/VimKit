@@ -310,16 +310,17 @@ fn default(currentPath: vimrc) {
             url: PythonPlugins[i].to_string(),
             valid: false,
 
-        }
-    };
+        };
+    
 
     currentPlugin.checkRepo();
 
     if currentPlugin.valid == true {
         fs::write(path, "Plug '".to_string() + &currentPlugin.url + "'");
-
     } else if currentPlugin.valid == false {
         PythonPlugins.retain(|&x| x != currentPlugin.url)
+    }
+
     }
 
     //write language plugins
