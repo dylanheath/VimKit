@@ -404,10 +404,7 @@ fn default(currentPath: vimrc) {
     }
 
 
-
-
-
-
+    fs::write(path, "call plug#end()");
 
 
     //write language plugins
