@@ -248,9 +248,9 @@ fn default(currentPath: vimrc) {
     "dracula/vim', { 'as': 'dracula' }" , "sainnhe/sonokai" , "sainnhe/gruvbox-material",
     "sainnhe/everforest", "NLKNguyen/papercolor-theme"];
 
-    let mut PythonPlugins =  vec!["'hdima/python-syntax'", "'davidhalter/jedi-vim'" ,""];
+    let mut PythonPlugins =  vec!["'hdima/python-syntax'", "'davidhalter/jedi-vim'"];
 
-    let mut JavaPlugins = vec!["'neoclide/coc-java'" , ""];
+    let mut JavaPlugins = vec!["'neoclide/coc-java'"];
 
     let mut CppPlugins =  vec!["'vim-scripts/c.vim'",  "'octol/vim-cpp-enhanced-highlight'"];
 
@@ -322,6 +322,93 @@ fn default(currentPath: vimrc) {
     }
 
     }
+
+
+    for i in 0..JavaPlugins.len() {
+        let currentPlugin = defaultRepo {
+            url: JavaPlugins[i].to_string(),
+            valid: false,
+    };
+
+    currentPlugin.checkRepo();
+
+    if currentPlugin.valid == true {
+        fs::write(path, "Plug '".to_string() + &currentPlugin.url + "'");
+    } else if currentPlugin.valid == false {
+        JavaPlugins.retain(|&x| x != currentPlugin.url)
+    } 
+    }
+
+
+    for i in 0..CppPlugins.len() {
+        let currentPlugin = defaultRepo {
+            url: CppPlugins[i].to_string(),
+            valid: false,
+        
+        };
+
+        currentPlugin.checkRepo();
+
+        if currentPlugin.valid == true {
+            fs::write(path, "Plug '".to_string() + &currentPlugin.url + "'");
+        } else if currentPlugin.valid == false {
+            CppPlugins.retain(|&x| x != currentPlugin.url)
+        }
+        
+    }
+
+    for i in 0..RustPlugins.len() {
+        let currentPlugin = defaultRepo {
+            url: RustPlugins[i].to_string(),
+            valid: false,
+        };
+
+        currentPlugin.checkRepo();
+
+        if currentPlugin.valid == true {
+            fs::write(path, "Plug '".to_string() + &currentPlugin.url + "'");
+        } else if currentPlugin.valid == false {
+            RustPlugins.retain(|&x| x != currentPlugin.url)
+        }
+    }
+
+
+    for i in 0..TypescriptPlugins.len() {
+        let currentPlugin = defaultRepo {
+            url: TypescriptPlugins[i].to_string(),
+            valid: false,
+        };
+
+        currentPlugin.checkRepo();
+
+        if currentPlugin.valid == true {
+            fs::write(path, "Plug '".to_string() + &currentPlugin.url + "'");
+        } else if currentPlugin.valid == false {
+            TypescriptPlugins.retain(|&x| x != currentPlugin.url)
+        }
+    }
+
+    for i in 0..GoPlugins.len() {
+        let currentPlugin = defaultRepo {
+            url: GoPlugins[i].to_string(),
+            valid: false,
+        };
+
+        currentPlugin.checkRepo();
+
+        if currentPlugin.valid == true {
+            fs::write(path , "Plug '".to_string() + &currentPlugin.url + "'");
+        } else if currentPlugin.valid == false {
+            GoPlugins.retain(|&x| x != currentPlugin.url)
+        }
+    }
+
+
+
+
+
+
+
 
     //write language plugins
     std::thread::sleep(std::time::Duration::from_secs(3));
