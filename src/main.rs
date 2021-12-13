@@ -261,7 +261,7 @@ fn default(currentPath: vimrc) {
     let mut GoPlugins = vec!["'fatih/vim-go'"];
     
 
-
+    //change writing methods so it doens't clear file
 
     for i in 0..Configuration.len() {
         fs::write(path , "set".to_string() + Configuration[i]).expect("Failed to write to vimrc");
